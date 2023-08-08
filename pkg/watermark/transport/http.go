@@ -21,25 +21,21 @@ func NewHTTPHandler(ep endpoints.Set) http.Handler {
 		decodeHTTPGetRequest,
 		encodeResponse,
 	))
-
 	m.Handle("/status", httptransport.NewServer(
 		ep.StatusEndpoint,
 		decodeHTTPStatusRequest,
 		encodeResponse,
 	))
-
 	m.Handle("/watermark", httptransport.NewServer(
 		ep.WatermarkEndpoint,
 		decodeHTTPWatermarkRequest,
 		encodeResponse,
 	))
-
 	m.Handle("/addDocument", httptransport.NewServer(
 		ep.AddDocumentEndpoint,
 		decodeHTTPAddDocumentRequest,
 		encodeResponse,
 	))
-
 	m.Handle("/healthz", httptransport.NewServer(
 		ep.ServiceStatusEndpoint,
 		decodeHTTPServiceStatusRequest,
